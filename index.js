@@ -31,10 +31,6 @@ const generateId = () => {
   return maxId + 1
 }
 
-app.get('/', (req, res) => {
-  res.send('<h1>hello, world</h1>')
-})
-
 app.get('/api/notes', (req, res) => {
   res.json(notes)
 })
