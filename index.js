@@ -68,11 +68,6 @@ app.post('/api/notes', (req, res, next) => {
 app.put('/api/notes/:id', (req, res) => {
   const { content, important } = req.body
 
-  const note = {
-    content: body.content,
-    important: body.important
-  }
-
   Note.findByIdAndUpdate(
     req.params.id,
     { content, important },
