@@ -46,8 +46,9 @@ app.get('/api/notes/:id', (req, res, next) => {
     .catch(error => next(error))
 })
 
-app.delete('/api/notes/:id', (req, res) => {
+app.delete('/api/notes/:id', (req, res, next) => {
   Note.findByIdAndDelete(req.params.id)
+    // eslint-disable-next-line no-unused-vars
     .then(result => res.status(204).end())
     .catch(error => next(error))
 })
@@ -65,7 +66,7 @@ app.post('/api/notes', (req, res, next) => {
     .catch(error => next(error))
 })
 
-app.put('/api/notes/:id', (req, res) => {
+app.put('/api/notes/:id', (req, res, next) => {
   const { content, important } = req.body
 
   Note.findByIdAndUpdate(
